@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<BaseLayout title="Projects | Uduma Idika">
+  <section class="pt-32 pb-28 px-6 max-w-6xl mx-auto animate-fade-in">
+
+    <!-- Header -->
+    <div class="text-center mb-20">
+      <h1 class="text-4xl font-bold mb-4">Selected Projects</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        A curated selection of my projects that showcase applied machine learning,
+        generative AI (GenAI), data engineering, and decision-focused systems.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <ProjectCard
+        title="Retrieval-Augmented Generation Chatbot System"
+        description="Designed and implemented a RAG pipeline enabling context-aware question answering over document collections."
+        tech="Python · Hugging Face · Transformers · Vector Databases"
+        data="Open-source & synthetic documents"
+        link="https://github.com/Idika-1/Mini-RAG-Chatbot"
+      />
+
+      <ProjectCard
+        title="Azure Serverless ML Workflow"
+        description="End-to-end serverless inference pipeline integrating Azure Functions with containerized ML APIs."
+        tech="Azure · Docker · FastAPI · Machine Learning"
+        data="MNIST, Iris, IMDB (open datasets)"
+        link="https://github.com/Idika-1/Azure-Serverless-ML-Workflow"
+      />
+
+      <ProjectCard
+        title="Data Mining and Visualization"
+        description="CRISP-DM workflow demonstration, combining strong data preparation, sound modeling decisions, and business-focused interpretation."
+        tech="Python · Pandas · Visualization · ML"
+        data="Open-source"
+        link="https://github.com/Idika-1/Online-Retail-Analytics-Data-Mining-and-Visualization"
+      />
+	  
+	  <ProjectCard
+        title="AI-Driven Fraud Detection System"
+        description="Scalable fraud detection pipeline combining anomaly detection and rule-based analysis."
+        tech="Python · Spark · ML · HDFS"
+        data="Hypothetical financial transactions"
+        link="https://github.com/Idika-1/Mini_Project_on_AI-Driven_Fraud_Detection_Solution"
+      />
+
+      <ProjectCard
+        title="Automated Block Manipulation Planner"
+        description="AI planning system for robotic block manipulation using symbolic planning techniques."
+        tech="Python · PDDL · Fast Downward"
+        data="Simulated environments"
+        link="https://github.com/Idika-1/AI-Planning-Robot-Arm-"
+      />
+
+      <ProjectCard
+        title="Neural Networks from Scratch (JAX)"
+        description="Implemented feedforward neural networks from first principles with mathematical rigor."
+        tech="JAX · NumPy · ML Theory"
+        data="Open datasets"
+        link="https://github.com/Idika-1/Neural-Network-Design"
+      />
+
+      <ProjectCard
+        title="France Road Traffic Accident Analysis (2023)"
+        description="Exploratory analysis and predictive modeling on France’s official 2023 road accident dataset."
+        tech="Python · Pandas · Visualization · ML"
+        data="Official open data (France, 2023)"
+        link="https://github.com/Idika-1/France-Road-Accident-Analysis"
+      />
+
+    </div>
+
+  </section>
+</BaseLayout>

@@ -1,0 +1,132 @@
+---
+import ThemeToggle from "../components/ThemeToggle.astro";
+import "../styles/global.css";
+import StickyContact from "../components/StickyContact.astro";
+import Footer from "../components/Footer.astro";
+import MobileMenu from "../components/MobileMenu.astro";
+
+
+const {
+  title = "Uduma Idika | AI & Data Scientist",
+  description = "Portfolio of Uduma Idika, showcasing AI, Machine Learning, Data Science and applied research projects."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	
+    <!-- Prevent dark-mode flash -->
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (theme === "dark" || (!theme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+	
+	<!-- OpenGraph / Social Preview -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:url" content="https://uduma-idika.is-a.dev" />
+	<meta property="og:image" content="https://uduma-idika.is-a.dev/og/og-cover.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+
+	<!-- Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:image" content="https://uduma-idika.is-a.dev/og/og-cover.png" />
+
+    <!-- SEO -->
+    <meta name="author" content="Uduma Idika" />
+    <meta
+      name="keywords"
+      content="Data Science, Machine Learning, AI, NLP, RAG, MLOps, Portfolio"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Uduma Idika",
+        "url": "https://uduma-idika.is-a.dev",
+        "sameAs": [
+          "https://github.com/Idika-1",
+          "https://www.linkedin.com/in/uduma-idika"
+        ],
+        "jobTitle": "AI & Data Scientist",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "ECE Paris"
+        },
+        "knowsAbout": [
+          "Machine Learning",
+          "Generative AI",
+          "Data Science",
+          "MLOps",
+          "LLMs",
+          "RAG",
+          "Azure",
+          "Databricks"
+        ]
+      }
+    </script>
+  </head>
+
+  <body
+    class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
+  
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-semibold text-lg tracking-tight">
+      Uduma Idika
+    </a>
+
+    <nav class="flex items-center gap-3">
+	  <!-- Mobile menu -->
+	  <MobileMenu />
+
+	  <!-- Desktop navigation -->
+	  <div class="hidden lg:flex items-center gap-4">
+		<a href="/experience" class="btn btn-ghost">
+		  Experience
+		</a>
+
+		<a href="/projects" class="btn btn-ghost">
+		  Projects
+		</a>
+
+		<a href="/cv" class="btn btn-ghost">
+		  CV
+		</a>
+	  </div>
+
+
+  <ThemeToggle />
+</nav>
+
+
+  </div>
+</header>
+
+
+    <!-- Main content -->
+    <main>
+      <slot />
+    </main>
+	<StickyContact />
+	<Footer />
+  </body>
+</html>

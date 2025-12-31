@@ -1,0 +1,26 @@
+---
+const { href, label } = Astro.props;
+---
+
+<a
+  href={href}
+  target={href.startsWith("http") ? "_blank" : undefined}
+  rel="noopener noreferrer"
+  aria-label={label}
+  class="group relative flex items-center justify-center
+         w-11 h-11 rounded-full
+         border border-gray-300/70 dark:border-gray-700/60
+         bg-white dark:bg-black
+         shadow-sm
+         hover:shadow-md
+         hover:-translate-y-0.5
+         transition-all duration-300 ease-out"
+>
+  <span
+    class="text-gray-600 dark:text-gray-300
+           group-hover:text-accent-600
+           transition-colors duration-300"
+  >
+    <slot />
+  </span>
+</a>

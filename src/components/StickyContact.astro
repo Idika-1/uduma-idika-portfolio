@@ -1,0 +1,23 @@
+---
+import { Mail, Linkedin } from "lucide-astro";
+import ContactIcon from "./ContactIcon.astro";
+---
+
+<!-- Sticky contact (desktop only) -->
+<div class="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-4">
+
+  <ContactIcon
+    href="mailto:mail.idika@gmail.com"
+    label="Email Uduma Idika"
+  >
+    <Mail size={18} />
+  </ContactIcon>
+
+  <ContactIcon
+    href="https://www.linkedin.com/in/uduma-idika"
+    label="Uduma Idika on LinkedIn"
+  >
+    <Linkedin size={18} />
+  </ContactIcon>
+
+</div>

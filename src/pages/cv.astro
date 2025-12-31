@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="CV | Uduma Idika">
+  <main class="max-w-5xl mx-auto px-6 py-16">
+
+    <h1 class="text-3xl font-bold mb-8">Curriculum Vitae</h1>
+
+    <div class="w-full h-[85vh] border rounded-lg overflow-hidden bg-white dark:bg-gray-900">
+      <object
+        data="/cv/Uduma_Idika_CV.pdf"
+        type="application/pdf"
+        class="w-full h-full"
+      >
+        <p class="text-gray-600 p-4">
+          Your browser does not support inline PDF viewing.
+          <a href="/cv/Uduma_Idika_CV.pdf" class="text-blue-600 underline">
+            Download the CV instead.
+          </a>
+        </p>
+      </object>
+    </div>
+
+    <div class="flex flex-wrap gap-8 mt-8">
+      <a
+        href="/cv/Uduma_Idika_CV.pdf"
+        target="_blank"
+        class="px-5 py-3 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+      >
+        Open CV in new tab
+      </a>
+
+      <a
+        href="/cv/Uduma_Idika_CV.pdf"
+        download
+        class="px-5 py-3 bg-black text-white rounded-md"
+      >
+        Download CV
+      </a>
+    </div>
+
+  </main>
+</BaseLayout>

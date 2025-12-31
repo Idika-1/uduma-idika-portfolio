@@ -1,0 +1,71 @@
+---
+import { Menu, X } from "lucide-astro";
+---
+
+<div class="lg:hidden">
+  <!-- Toggle button -->
+  <button
+    id="menu-toggle"
+    aria-label="Open navigation menu"
+    class="p-2 rounded-md border border-gray-300 dark:border-gray-700
+           hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+  >
+    <Menu id="menu-icon" size={20} />
+  </button>
+
+  <!-- Overlay -->
+  <div
+    id="menu-overlay"
+    class="fixed inset-0 z-50 hidden bg-black/40 backdrop-blur-sm"
+  ></div>
+
+  <!-- Slide panel -->
+  <aside
+    id="menu-panel"
+    class="fixed top-0 left-0 h-full w-72
+           bg-white dark:bg-gray-900
+           border-r border-gray-200 dark:border-gray-800
+           translate-x-[-100%]
+           transition-transform duration-300 ease-out
+           z-50"
+  >
+    <div class="p-6 flex items-center justify-between border-b dark:border-gray-800">
+      <span class="font-semibold text-lg">Navigation</span>
+      <button id="menu-close" aria-label="Close menu">
+        <X size={20} />
+      </button>
+    </div>
+
+    <nav class="p-6 space-y-4">
+      <a href="/about" class="block btn btn-ghost">About Me</a>
+      <a href="/projects" class="block btn btn-ghost">Projects</a>
+      <a href="/experience" class="block btn btn-ghost">Experience</a>
+      <a href="/cv" class="block btn btn-ghost">CV</a>
+
+      <div class="pt-6 border-t dark:border-gray-800">
+        
+      </div>
+    </nav>
+  </aside>
+</div>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const closeBtn = document.getElementById("menu-close");
+  const panel = document.getElementById("menu-panel");
+  const overlay = document.getElementById("menu-overlay");
+
+  const openMenu = () => {
+    panel.style.transform = "translateX(0)";
+    overlay.classList.remove("hidden");
+  };
+
+  const closeMenu = () => {
+    panel.style.transform = "translateX(-100%)";
+    overlay.classList.add("hidden");
+  };
+
+  toggle.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+</script>
