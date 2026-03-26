@@ -89,7 +89,9 @@ const {
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
 	
-	  gtag('config', 'G-Y08Y3P5FL4');
+	  gtag('config', 'G-Y08Y3P5FL4', {
+	    page_path: window.location.pathname,
+	  });
 	</script>
 
   </head>
